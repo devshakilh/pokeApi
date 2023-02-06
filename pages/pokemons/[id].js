@@ -1,13 +1,15 @@
 import React from "react";
 import Layout from "../../components/Layout";
+import Image from 'next/image'
+
 
 const Details = ({ pokeman, styles }) => {
   console.log(pokeman);
   return (
     <Layout title={pokeman.name.english}>
-      <div className="min-h-screen pt-8 flex flex-wrap sm:flex-nowrap justify-center mx-auto">
-        <div className="flex-1">
-          <img src={pokeman.image.hires} alt="" />
+      <div className="min-h-screen pt-8 parent flex flex-wrap sm:flex-nowrap justify-center mx-auto">
+        <div className="flex-1 child">
+          <Image src={pokeman.image.hires} alt="" />
         </div>
         <div className="flex-1">
           <p className="text-4xl font-semibold">
@@ -81,7 +83,7 @@ const Details = ({ pokeman, styles }) => {
                   <span>{pokeman.base[stat]}</span>
                 </div>
                 <div className="h-4 w-full bg-gray-900 rounded-full">
-                  <div className="h-4 rounded-full" style={{backgroundColor:statColor, width:parseInt(pokeman.base[stat])*statPercentFactor}}></div>
+                  <div className="h-4 rounded-full" style={{ backgroundColor: statColor, width: parseInt(pokeman.base[stat]) * statPercentFactor }}></div>
                 </div>
               </div>;
             })}
